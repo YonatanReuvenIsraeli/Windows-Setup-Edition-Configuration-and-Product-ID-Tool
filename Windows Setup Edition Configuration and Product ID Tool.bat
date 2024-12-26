@@ -2,7 +2,7 @@
 setlocal
 title Windows Setup Edition Configuration and Product ID Tool
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.0
+echo Version: 1.0.1
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -432,11 +432,11 @@ goto "PIDCheck"
 echo.
 echo Setting Windows Setup Edition Configuration file.
 (echo [EditionID]) > "%DriveLetter%\x86\sources\EI.cfg"
-if /i "%Edition4%"=="1" echo. >> "%DriveLetter%\x86\sources\EI.cfg"
+if /i "%Edition4%"=="1" (echo.) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition4%"=="2" (echo Core) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition4%"=="3" (echo CoreSingleLanguage) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition4%"=="4" (echo Professional) >> "%DriveLetter%\x86\sources\EI.cfg"
-if /i "%Edition8%"=="1" echo. >> "%DriveLetter%\x86\sources\EI.cfg"
+if /i "%Edition8%"=="1" (echo.) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition8%"=="2" (echo Core) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition8%"=="3" (echo CoreN) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition8%"=="4" (echo CoreSingleLanguage) >> "%DriveLetter%\x86\sources\EI.cfg"
@@ -444,7 +444,7 @@ if /i "%Edition8%"=="5" (echo Education) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition8%"=="6" (echo EducationN) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition8%"=="7" (echo Professional) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition8%"=="8" (echo ProfessionalN) >> "%DriveLetter%\x86\sources\EI.cfg"
-if /i "%Edition12%"=="1" echo. >> "%DriveLetter%\x86\sources\EI.cfg"
+if /i "%Edition12%"=="1" (echo.) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition12%"=="2" (echo Core) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition12%"=="3" (echo CoreN) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Edition12%"=="4" (echo CoreSingleLanguage) >> "%DriveLetter%\x86\sources\EI.cfg"
@@ -459,17 +459,17 @@ if /i "%Edition12%"=="12" (echo ProfessionalWorkstationsN) >> "%DriveLetter%\x86
 (echo [Channel]) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%RetailOEM%"=="Retail" (echo Retail) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%RetailOEM%"=="OEM" (echo OEM) >> "%DriveLetter%\x86\sources\EI.cfg"
-if /i "%RetailOEM%"=="Set" echo. >> "%DriveLetter%\x86\sources\EI.cfg"
+if /i "%RetailOEM%"=="Set" (echo.) >> "%DriveLetter%\x86\sources\EI.cfg"
 (echo [VL]) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Volume%"=="Yes" (echo 1) >> "%DriveLetter%\x86\sources\EI.cfg"
 if /i "%Volume%"=="No" (echo 0) >> "%DriveLetter%\x86\sources\EI.cfg"
-if /i "%Volume%"=="Set" echo. >> "%DriveLetter%\x86\sources\EI.cfg"
+if /i "%Volume%"=="Set" (echo.) >> "%DriveLetter%\x86\sources\EI.cfg"
 (echo [EditionID]) > "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%Edition4%"=="1" echo. >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%Edition4%"=="1" (echo.) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition4%"=="2" (echo Core) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition4%"=="3" (echo CoreSingleLanguage) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition4%"=="4" (echo Professional) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%Edition8%"=="1" echo. >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%Edition8%"=="1" (echo.) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition8%"=="2" (echo Core) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition8%"=="3" (echo CoreN) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition8%"=="4" (echo CoreSingleLanguage) >> "%DriveLetter%\x64\sources\EI.cfg"
@@ -477,7 +477,7 @@ if /i "%Edition8%"=="5" (echo Education) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition8%"=="6" (echo EducationN) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition8%"=="7" (echo Professional) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition8%"=="8" (echo ProfessionalN) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%Edition12%"=="1" echo. >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%Edition12%"=="1" (echo.) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition12%"=="2" (echo Core) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition12%"=="3" (echo CoreN) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Edition12%"=="4" (echo CoreSingleLanguage) >> "%DriveLetter%\x64\sources\EI.cfg"
@@ -492,11 +492,11 @@ if /i "%Edition12%"=="12" (echo ProfessionalWorkstationsN) >> "%DriveLetter%\x64
 (echo [Channel]) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%RetailOEM%"=="Retail" (echo Retail) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%RetailOEM%"=="OEM" (echo OEM) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%RetailOEM%"=="Set" echo. >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%RetailOEM%"=="Set" (echo.) >> "%DriveLetter%\x64\sources\EI.cfg"
 (echo [VL]) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Volume%"=="Yes" (echo 1) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%Volume%"=="No" (echo 0) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%Volume%"=="Set" echo. >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%Volume%"=="Set" (echo.) >> "%DriveLetter%\x64\sources\EI.cfg"
 echo Set up Windows Setup Edition Configuration file.
 goto "PIDCheck"
 
@@ -511,7 +511,7 @@ if /i "%PID%"=="No" goto "Start"
 echo.
 echo Setting Windows Product ID file.
 (echo [PID]) > "%DriveLetter%\sources\PID.txt"
-(echo %PIDKey%) >> "%DriveLetter%\sources\PID.txt"
+(echo Value=%PIDKey%) >> "%DriveLetter%\sources\PID.txt"
 echo Set up Windows Product ID file.
 goto "Start"
 
@@ -519,7 +519,7 @@ goto "Start"
 echo.
 echo Setting Windows Product ID file.
 (echo [PID]) > "%DriveLetter%\sources\PID.txt"
-echo. >> "%DriveLetter%\sources\PID.txt"
+(echo.) >> "%DriveLetter%\sources\PID.txt"
 echo Set up Windows Product ID file.
 goto "Start"
 
@@ -527,9 +527,9 @@ goto "Start"
 echo.
 echo Setting Windows Product ID file.
 (echo [PID]) > "%DriveLetter%\x86\sources\PID.txt"
-(echo %PIDKey%) >> "%DriveLetter%\x86\sources\PID.txt"
+(echo Value=%PIDKey%) >> "%DriveLetter%\x86\sources\PID.txt"
 (echo [PID]) > "%DriveLetter%\x64\sources\PID.txt"
-(echo %PIDKey%) >> "%DriveLetter%\x64\sources\PID.txt"
+(echo Value=%PIDKey%) >> "%DriveLetter%\x64\sources\PID.txt"
 echo Set up Windows Product ID file.
 goto "Start"
 
@@ -537,9 +537,9 @@ goto "Start"
 echo.
 echo Setting Windows Product ID file.
 (echo [PID]) > "%DriveLetter%\x86\sources\PID.txt"
-echo. >> "%DriveLetter%\x86\sources\PID.txt"
+(echo.) >> "%DriveLetter%\x86\sources\PID.txt"
 (echo [PID]) > "%DriveLetter%\x64\sources\PID.txt"
-echo. >> "%DriveLetter%\x64\sources\PID.txt"
+(echo.) >> "%DriveLetter%\x64\sources\PID.txt"
 echo Set up Windows Product ID file.
 goto "Start"
 
