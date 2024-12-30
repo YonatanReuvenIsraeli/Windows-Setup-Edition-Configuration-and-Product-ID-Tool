@@ -2,7 +2,7 @@
 setlocal
 title Windows Setup Edition Configuration and Product ID Tool
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.4
+echo Version: 1.0.5
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -80,9 +80,9 @@ goto "DriveLetter"
 if exist "%DriveLetter%\sources" if /i "%Start%"=="1" goto "1"
 if exist "%DriveLetter%\x86\sources" if /i "%Start%"=="1" goto "1Both"
 if exist "%DriveLetter%\x64\sources" if /i "%Start%"=="1" goto "1Both"
-if exist "%DriveLetter%\sources" if /i "%Start%"=="2" goto "2"
-if exist "%DriveLetter%\x86\sources" if /i "%Start%"=="2" goto "2"
-if exist "%DriveLetter%\x64\sources" if /i "%Start%"=="2" goto "2"
+if exist "%DriveLetter%\sources" if /i "%Start%"=="2" goto "2EI"
+if exist "%DriveLetter%\x86\sources" if /i "%Start%"=="2" goto "2EIBoth"
+if exist "%DriveLetter%\x64\sources" if /i "%Start%"=="2" goto "2EIBoth"
 if /i "%Start%"=="3" goto "3EICheck"
 echo "%DriveLetter%" is not a Windows Installation Media!
 goto "DriveLetter"
@@ -120,25 +120,24 @@ if exist "%DriveLetter%\x64\sources\PID.txt" type "%DriveLetter%\x64\sources\PID
 if not exist "%DriveLetter%\x64\sources\PID.txt" echo Product ID does not exist.
 goto "Start"
 
-:"2"
-echo.
-set SureDelete=
-set /p SureDelete="Warning! This will delete existing edition configuration and Product ID files that you choose to modify. Are you sure you want to continue? (Yes/No) "
-if /i "%SureDelete%"=="Yes" if exist "%DriveLetter%\sources" goto "2EI"
-if /i "%SureDelete%"=="Yes" if exist "%DriveLetter%\x86\sources" goto "2EIBoth"
-if /i "%SureDelete%"=="Yes" if exist "%DriveLetter%\x64\sources" goto "2EIBoth"
-if /i "%SureDelete%"=="No" goto "Start"
-echo Invalid syntax!
-goto "2"
-
 :"2EI"
 echo.
 set EI=
 set /p EI="Do you want to set an edition configuration file? (Yes/No) "
+if /i "%EI%"=="Yes" if exist "%DriveLetter%\sources\EI.cfg" goto "2EISureDelete"
 if /i "%EI%"=="Yes" goto "Install"
 if /i "%EI%"=="No" goto "PID"
 echo Invalid syntax!
 goto "2EI"
+
+:"2EISureDelete"
+echo.
+set SureDelete=
+set /p SureDelete="Warning! This will delete your existing edition configuration files. Are you sure you want to continue? (Yes/No) "
+if /i "%SureDelete%"=="Yes" goto "Install"
+if /i "%SureDelete%"=="No" goto "PID"
+echo Invalid syntax!
+goto "2EISureDelete"
 
 :"Install"
 if exist "%DriveLetter%\sources\install.esd" set Install=install.esd
@@ -167,7 +166,7 @@ set Edition=True
 echo.
 echo Please temporary rename to something else or temporary move to another location "%cd%\Edition.txt" in order for this batch file to proceed. "%cd%\Edition.txt" is not a system file. Press any key to continue when "%cd%\Edition.txt" is renamed to something else or moved to another location. This batch file will let you know when you can rename it back to its original name or move it back to its original location.
 pause > nul 2>&1
-goto "2"
+goto "DISM"
 
 :"IndexDone"
 echo.
@@ -184,10 +183,21 @@ set Both=True
 echo.
 set EI=
 set /p EI="Do you want to set an edition configuration file? (Yes/No) "
+if /i "%EI%"=="Yes" if exist "%DriveLetter%\x86\sources\EI.cfg" goto "2EIBothSureDelete"
+if /i "%EI%"=="Yes" if exist "%DriveLetter%\x64\sources\EI.cfg" goto "2EIBothSureDelete"
 if /i "%EI%"=="Yes" goto "Edition7"
 if /i "%EI%"=="No" goto "PID"
 echo Invalid syntax!
 goto "2EIBoth"
+
+:"2EIBothSureDelete"
+echo.
+set SureDelete=
+set /p SureDelete="Warning! This will delete your existing edition configuration files. Are you sure you want to continue? (Yes/No) "
+if /i "%SureDelete%"=="Yes" goto "Edition7"
+if /i "%SureDelete%"=="No" goto "PID"
+echo Invalid syntax!
+goto "2EIBothSureDelete"
 
 :"Edition3"
 echo.
@@ -343,10 +353,22 @@ goto "SureVolume"
 echo.
 set PID=
 set /p PID="Do you want to set up a Product ID file? (Yes/No) "
+if /i "%PID%"=="Yes" if exist "%DriveLetter%\sources\PID.txt" goto "PIDSureDelete"
+if /i "%PID%"=="Yes" if exist "%DriveLetter%\x86\sources\PID.txt" goto "PIDSureDelete"
+if /i "%PID%"=="Yes" if exist "%DriveLetter%\x64\sources\PID.txt" goto "PIDSureDelete"
 if /i "%PID%"=="Yes" goto "PIDKey"
 if /i "%PID%"=="No" goto "EICheck"
 echo Invalid syntax!
 goto "PID"
+
+:"PIDSureDelete"
+echo.
+set SureDelete=
+set /p SureDelete="Warning! This will delete your existing Product ID files. Are you sure you want to continue? (Yes/No) "
+if /i "%SureDelete%"=="Yes" goto "PIDKey"
+if /i "%SureDelete%"=="No" goto "EICheck"
+echo Invalid syntax!
+goto "PIDSureDelete"
 
 :"PIDKey"
 echo.
