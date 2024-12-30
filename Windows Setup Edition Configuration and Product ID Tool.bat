@@ -2,7 +2,7 @@
 setlocal
 title Windows Setup Edition Configuration and Product ID Tool
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.3
+echo Version: 1.0.4
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -121,17 +121,6 @@ if not exist "%DriveLetter%\x64\sources\PID.txt" echo Product ID does not exist.
 goto "Start"
 
 :"2"
-if exist "%DriveLetter%\sources\ei.cfg" goto "SureDelete"
-if exist "%DriveLetter%\x64\sources\ei.cfg" goto "SureDelete"
-if exist "%DriveLetter%\x86\sources\ei.cfg" goto "SureDelete"
-if exist "%DriveLetter%\sources\PID.txt" goto "SureDelete"
-if exist "%DriveLetter%\x64\sources\PID.txt" goto "SureDelete"
-if exist "%DriveLetter%\x86\sources\PID.txt" goto "SureDelete"
-if exist "%DriveLetter%\sources" goto "2EI"
-if exist "%DriveLetter%\x86\sources" goto "2EIBoth"
-if exist "%DriveLetter%\x64\sources" goto "2EIBoth"
-
-:"SureDelete"
 echo.
 set SureDelete=
 set /p SureDelete="Warning! This will delete existing edition configuration and Product ID files that you choose to modify. Are you sure you want to continue? (Yes/No) "
@@ -140,7 +129,7 @@ if /i "%SureDelete%"=="Yes" if exist "%DriveLetter%\x86\sources" goto "2EIBoth"
 if /i "%SureDelete%"=="Yes" if exist "%DriveLetter%\x64\sources" goto "2EIBoth"
 if /i "%SureDelete%"=="No" goto "Start"
 echo Invalid syntax!
-goto "SureDelete"
+goto "2"
 
 :"2EI"
 echo.
