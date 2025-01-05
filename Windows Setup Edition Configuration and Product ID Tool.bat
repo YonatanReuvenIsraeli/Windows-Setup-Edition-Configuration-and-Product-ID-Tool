@@ -2,12 +2,11 @@
 setlocal
 title Windows Setup Edition Configuration and Product ID Tool
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.5
+echo Version: 1.0.6
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
-echo Sponsor: https://github.com/sponsors/YonatanReuvenIsraeli 
-net session > nul 2>&1
+echo Sponsor: https://github.com/sponsors/YonatanReuvenIsraeli
 goto "Start"
 
 :"Start"
@@ -149,7 +148,7 @@ goto "DISM"
 if exist "%cd%\Index.txt" goto "IndexExist"
 echo.
 echo Getting edition details for Windows Installation Media "%DriveLetter%".
-DISM /Get-WimInfo /WimFile:"%DriveLetter%\sources\%Install%" | find /c /i "Index" > "%cd%\Edition.txt"
+"%windir%\System32\Dism.exe" /Get-WimInfo /WimFile:"%DriveLetter%\sources\%Install%" | find /c /i "Index" > "%cd%\Edition.txt"
 set /p EditionNumber=< "%cd%\Edition.txt"
 del "%cd%\Edition.txt" /f /q > nul 2>&1
 echo Got edition details for Windows Installation Media "%DriveLetter%".
@@ -515,7 +514,7 @@ set EI=
 set /p EI="Do you want to delete edition configuration file? (Yes/No) "
 if /i "%EI%"=="Yes" goto "3SureEI"
 if /i "%EI%"=="No" goto "3PIDCheck"
-echo Invalid syntax
+echo Invalid syntax!
 goto "3EICheck"
 
 :"3SureEI"
@@ -533,7 +532,7 @@ set PID=
 set /p PID="Do you want to delete Poduct ID file? (Yes/No) "
 if /i "%PID%"=="Yes" goto "3SurePID"
 if /i "%PID%"=="No" goto "3EIDelete"
-echo Invalid syntax
+echo Invalid syntax!
 goto "3PIDCheck"
 
 :"3SurePID"
