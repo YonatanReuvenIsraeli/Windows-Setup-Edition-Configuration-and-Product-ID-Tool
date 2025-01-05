@@ -2,7 +2,7 @@
 setlocal
 title Windows Setup Edition Configuration and Product ID Tool
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.6
+echo Version: 1.0.7
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -11,9 +11,9 @@ goto "Start"
 
 :"Start"
 echo.
-echo [1] Check Windows Setup Edition Configuration and Product ID files.
-echo [2] Set Windows Setup Edition Configuration and Product ID files.
-echo [3] Delete Windows Setup Edition Configuration and Product ID files.
+echo [1] Check Windows Setup edition configuration and Product ID files.
+echo [2] Set Windows Setup edition configuration and Product ID files.
+echo [3] Delete Windows Setup edition configuration and Product ID files.
 echo [4] Exit.
 echo.
 set Start=
