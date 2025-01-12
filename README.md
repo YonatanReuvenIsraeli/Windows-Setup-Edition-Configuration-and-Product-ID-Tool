@@ -1,2 +1,2 @@
-# Windows Setup Edition Configuration and Product ID Tool v1.0.11
+# Windows Setup Edition Configuration and Product ID Tool v1.0.12
 View/set/delete Windows Setup edition configuration and Product ID files.
