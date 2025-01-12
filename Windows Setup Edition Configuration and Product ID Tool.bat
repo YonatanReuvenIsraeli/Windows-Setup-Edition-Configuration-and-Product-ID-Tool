@@ -2,7 +2,7 @@
 setlocal
 title Windows Setup Edition Configuration and Product ID Tool
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.9
+echo Version: 1.0.10
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -99,7 +99,6 @@ echo.
 echo Edition configuration details:
 if exist "%DriveLetter%\sources\EI.cfg" type "%DriveLetter%\sources\EI.cfg"
 if not exist "%DriveLetter%\sources\EI.cfg" echo Edition configuratrion does not exist.
-if exist "%DriveLetter%\sources\EI.cfg" echo.
 echo.
 echo Product ID details:
 if exist "%DriveLetter%\sources\PID.txt" type "%DriveLetter%\sources\PID.txt"
@@ -111,7 +110,6 @@ echo.
 echo Edition configuration (x86) details:
 if exist "%DriveLetter%\x86\sources\EI.cfg" type "%DriveLetter%\x86\sources\EI.cfg"
 if not exist "%DriveLetter%\x86\sources\EI.cfg" echo Edition configuratrion does not exist.
-if exist "%DriveLetter%\x86\sources\EI.cfg" echo.
 echo.
 echo Product ID (x86) details:
 if exist "%DriveLetter%\x86\sources\PID.txt" type "%DriveLetter%\x86\sources\PID.txt"
@@ -120,7 +118,6 @@ echo.
 echo Edition configuration (x64) details:
 if exist "%DriveLetter%\x64\sources\EI.cfg" type "%DriveLetter%\x64\sources\EI.cfg"
 if not exist "%DriveLetter%\x64\sources\EI.cfg" echo Edition configuratrion does not exist.
-if exist "%DriveLetter%\x64\sources\EI.cfg" echo.
 echo.
 echo Product ID (x64) details:
 if exist "%DriveLetter%\x64\sources\PID.txt" type "%DriveLetter%\x64\sources\PID.txt"
