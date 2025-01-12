@@ -2,7 +2,7 @@
 setlocal
 title Windows Setup Edition Configuration and Product ID Tool
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.7
+echo Version: 1.0.8
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -145,12 +145,12 @@ if exist "%DriveLetter%\sources\install.wim" set Install=install.wim
 goto "DISM"
 
 :"DISM"
-if exist "%cd%\Index.txt" goto "IndexExist"
+if exist "Index.txt" goto "IndexExist"
 echo.
 echo Getting edition details for Windows Installation Media "%DriveLetter%".
-"%windir%\System32\Dism.exe" /Get-WimInfo /WimFile:"%DriveLetter%\sources\%Install%" | find /c /i "Index" > "%cd%\Edition.txt"
-set /p EditionNumber=< "%cd%\Edition.txt"
-del "%cd%\Edition.txt" /f /q > nul 2>&1
+"%windir%\System32\Dism.exe" /Get-WimInfo /WimFile:"%DriveLetter%\sources\%Install%" | find /c /i "Index" > "Edition.txt"
+set /p EditionNumber=< "Edition.txt"
+del "Edition.txt" /f /q > nul 2>&1
 echo Got edition details for Windows Installation Media "%DriveLetter%".
 if "%Edition%"=="True" goto "IndexDone"
 if "%EditionNumber%"=="3" goto "Edition3"
@@ -163,13 +163,13 @@ goto "Start"
 :"IndexExist"
 set Edition=True
 echo.
-echo Please temporary rename to something else or temporary move to another location "%cd%\Edition.txt" in order for this batch file to proceed. "%cd%\Edition.txt" is not a system file. Press any key to continue when "%cd%\Edition.txt" is renamed to something else or moved to another location. This batch file will let you know when you can rename it back to its original name or move it back to its original location.
+echo Please temporary rename to something else or temporary move to another location "Edition.txt" in order for this batch file to proceed. "Edition.txt" is not a system file. Press any key to continue when "Edition.txt" is renamed to something else or moved to another location. This batch file will let you know when you can rename it back to its original name or move it back to its original location.
 pause > nul 2>&1
 goto "DISM"
 
 :"IndexDone"
 echo.
-echo You can now rename or move back the file back to "%cd%\Edition.txt".
+echo You can now rename or move back the file back to "Edition.txt".
 if "%EditionNumber%"=="3" goto "Edition3"
 if "%EditionNumber%"=="7" goto "Edition7"
 if "%EditionNumber%"=="11" goto "Edition11"
