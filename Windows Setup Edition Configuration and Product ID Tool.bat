@@ -2,7 +2,7 @@
 setlocal
 title Windows Setup Edition Configuration and Product ID Tool
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.12
+echo Version: 1.0.13
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -36,7 +36,7 @@ goto "Start"
 :"DriveLetter"
 echo.
 set DriveLetter=
-set /p DriveLetter="What is the drive letter of your Windows Installation Media? (A:-Z:) "
+set /p DriveLetter="What is the drive letter of your Windows Disk Image/Windows installation media? (A:-Z:) "
 if /i "%DriveLetter%"=="A:" goto "SureDriveLetter"
 if /i "%DriveLetter%"=="B:" goto "SureDriveLetter"
 if /i "%DriveLetter%"=="C:" goto "SureDriveLetter"
@@ -69,7 +69,7 @@ goto "DriveLetter"
 :"SureDriveLetter"
 echo.
 set SureDriveLetter=
-set /p SureDriveLetter="Are you sure "%DriveLetter%" is the drive letter of your Windows Installation Media? (Yes/No) "
+set /p SureDriveLetter="Are you sure "%DriveLetter%" is the drive letter of your Windows Disk Image/Windows installation media? (Yes/No) "
 if /i "%SureDriveLetter%"=="Yes" goto "CheckExistDriveLetter"
 if /i "%SureDriveLetter%"=="No" goto "DriveLetter"
 echo Invalid syntax!
@@ -91,7 +91,7 @@ if exist "%DriveLetter%\sources" if /i "%Start%"=="2" goto "2EI"
 if exist "%DriveLetter%\x86\sources" if /i "%Start%"=="2" goto "2EIBoth"
 if exist "%DriveLetter%\x64\sources" if /i "%Start%"=="2" goto "2EIBoth"
 if /i "%Start%"=="3" goto "3EICheck"
-echo "%DriveLetter%" is not a Windows Installation Media!
+echo "%DriveLetter%" is not a Windows Disk Image/Windows installation media!
 goto "DriveLetter"
 
 :"1"
@@ -152,11 +152,11 @@ goto "DISM"
 :"DISM"
 if exist "Index.txt" goto "IndexExist"
 echo.
-echo Getting edition details for Windows Installation Media "%DriveLetter%".
+echo Getting edition details for Windows Disk Image/Windows installation media "%DriveLetter%".
 "%windir%\System32\Dism.exe" /Get-WimInfo /WimFile:"%DriveLetter%\sources\%Install%" | find /c /i "Index" > "Index.txt"
 set /p EditionNumber=< "Index.txt"
 del "Index.txt" /f /q > nul 2>&1
-echo Got edition details for Windows Installation Media "%DriveLetter%".
+echo Got edition details for Windows Disk Image/Windows installation media "%DriveLetter%".
 if "%Edition%"=="True" goto "IndexDone"
 if "%EditionNumber%"=="3" goto "Edition3"
 if "%EditionNumber%"=="7" goto "Edition7"
