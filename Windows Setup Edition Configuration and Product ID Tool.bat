@@ -1,8 +1,8 @@
 @echo off
-setlocal
 title Windows Setup Edition Configuration and Product ID Tool
+setlocal
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.15
+echo Version: 1.0.16
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
