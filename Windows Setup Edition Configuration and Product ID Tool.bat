@@ -2,7 +2,7 @@
 title Windows Setup Edition Configuration and Product ID Tool
 setlocal
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.16
+echo Version: 1.0.17
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -147,6 +147,10 @@ goto "2EISureDelete"
 if exist "%DriveLetter%\sources\install.esd" set Install=install.esd
 if exist "%DriveLetter%\sources\install.swm" set Install=install.swm
 if exist "%DriveLetter%\sources\install.wim" set Install=install.wim
+goto "IndexSet"
+
+:"IndexSet"
+set Index=
 goto "DISM"
 
 :"DISM"
