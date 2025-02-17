@@ -2,7 +2,7 @@
 title Windows Setup Edition Configuration and Product ID Tool
 setlocal
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.17
+echo Version: 1.0.18
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -98,7 +98,7 @@ goto "DriveLetter"
 echo.
 echo Edition configuration details:
 if exist "%DriveLetter%\sources\EI.cfg" type "%DriveLetter%\sources\EI.cfg"
-if not exist "%DriveLetter%\sources\EI.cfg" echo Edition configuratrion does not exist.
+if not exist "%DriveLetter%\sources\EI.cfg" echo Edition configuration does not exist.
 echo.
 echo Product ID details:
 if exist "%DriveLetter%\sources\PID.txt" type "%DriveLetter%\sources\PID.txt"
@@ -109,7 +109,7 @@ goto "Start"
 echo.
 echo Edition configuration (x86) details:
 if exist "%DriveLetter%\x86\sources\EI.cfg" type "%DriveLetter%\x86\sources\EI.cfg"
-if not exist "%DriveLetter%\x86\sources\EI.cfg" echo Edition configuratrion does not exist.
+if not exist "%DriveLetter%\x86\sources\EI.cfg" echo Edition configuration does not exist.
 echo.
 echo Product ID (x86) details:
 if exist "%DriveLetter%\x86\sources\PID.txt" type "%DriveLetter%\x86\sources\PID.txt"
@@ -117,7 +117,7 @@ if not exist "%DriveLetter%\x86\sources\PID.txt" echo Product ID does not exist.
 echo.
 echo Edition configuration (x64) details:
 if exist "%DriveLetter%\x64\sources\EI.cfg" type "%DriveLetter%\x64\sources\EI.cfg"
-if not exist "%DriveLetter%\x64\sources\EI.cfg" echo Edition configuratrion does not exist.
+if not exist "%DriveLetter%\x64\sources\EI.cfg" echo Edition configuration does not exist.
 echo.
 echo Product ID (x64) details:
 if exist "%DriveLetter%\x64\sources\PID.txt" type "%DriveLetter%\x64\sources\PID.txt"
@@ -311,8 +311,8 @@ if /i "%Edition11%"=="5" set /p EditionSure="Are you sure you want Education N? 
 if /i "%Edition11%"=="6" set /p EditionSure="Are you sure you want Pro edition? (Yes/No) "
 if /i "%Edition11%"=="7" set /p EditionSure="Are you sure you want Pro N edition? (Yes/No) "
 if /i "%Edition11%"=="8" set /p EditionSure="Are you sure you want Pro Education edition? (Yes/No) "
-if /i "%Edition11%"=="9" set /p EditionSure="Are you sure you want Pro Education N editon? (Yes/No) "
-if /i "%Edition11%"=="10" set /p EditionSure="Are you sure you want Pro for Workstations editon? (Yes/No) "
+if /i "%Edition11%"=="9" set /p EditionSure="Are you sure you want Pro Education N edition? (Yes/No) "
+if /i "%Edition11%"=="10" set /p EditionSure="Are you sure you want Pro for Workstations edition? (Yes/No) "
 if /i "%Edition11%"=="11" set /p EditionSure="Are you sure you want Pro for Workstations edition? (Yes/No) "
 if /i "%EditionSure%"=="Yes" goto "RetailOEM"
 if /i "%EditionSure%"=="No" goto "Edition11"
@@ -538,7 +538,7 @@ goto "3SureEI"
 :"3PIDCheck"
 echo.
 set PID=
-set /p PID="Do you want to delete Poduct ID file? (Yes/No) "
+set /p PID="Do you want to delete Product ID file? (Yes/No) "
 if /i "%PID%"=="Yes" goto "3SurePID"
 if /i "%PID%"=="No" goto "3EIDelete"
 echo Invalid syntax!
@@ -561,7 +561,7 @@ if /i "%EI%"=="No" goto "3PIDDelete"
 
 :"3EI"
 echo.
-if not exist "%DriveLetter%\sources\EI.cfg" echo Edition configuratrion does not exist.
+if not exist "%DriveLetter%\sources\EI.cfg" echo Edition configuration does not exist.
 if not exist "%DriveLetter%\sources\EI.cfg" goto "3PIDDelete"
 echo Deleting edition configuration.
 del "%DriveLetter%\sources\EI.cfg" /f /q > nul 2>&1
@@ -576,7 +576,7 @@ goto "3EI"
 
 :"3BothEIx86"
 echo.
-if not exist "%DriveLetter%\x86\sources\EI.cfg" echo Edition configuratrion (x86) does not exist.
+if not exist "%DriveLetter%\x86\sources\EI.cfg" echo Edition configuration (x86) does not exist.
 if not exist "%DriveLetter%\x86\sources\EI.cfg" goto "3BothEIx64"
 echo Deleting edition configuration (x86).
 del "%DriveLetter%\x86\sources\EI.cfg" /f /q > nul 2>&1
@@ -586,7 +586,7 @@ goto "3BothEIx64"
 
 :"3BothEIx64"
 echo.
-if not exist "%DriveLetter%\x64\sources\EI.cfg" echo Edition configuratrion (x64) does not exist.
+if not exist "%DriveLetter%\x64\sources\EI.cfg" echo Edition configuration (x64) does not exist.
 if not exist "%DriveLetter%\x64\sources\EI.cfg" goto "3PIDDelete"
 echo Deleting edition configuration (x64).
 del "%DriveLetter%\x64\sources\EI.cfg" /f /q > nul 2>&1
