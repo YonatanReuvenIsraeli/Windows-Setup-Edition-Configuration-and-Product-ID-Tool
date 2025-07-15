@@ -2,7 +2,7 @@
 title Windows Setup Edition Configuration and Product ID Tool
 setlocal
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.18
+echo Version: 1.0.19
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -178,7 +178,7 @@ goto "DISM"
 
 :"IndexDone"
 echo.
-echo You can now rename or move back the file back to "Index.txt".
+echo You can now rename or move the file back to "Index.txt".
 if "%EditionNumber%"=="3" goto "Edition3"
 if "%EditionNumber%"=="7" goto "Edition7"
 if "%EditionNumber%"=="11" goto "Edition11"
