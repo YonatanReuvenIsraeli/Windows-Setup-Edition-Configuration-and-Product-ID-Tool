@@ -2,7 +2,7 @@
 title Windows Setup Edition Configuration and Product ID Tool
 setlocal
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.19
+echo Version: 1.0.20
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -157,7 +157,7 @@ goto "DISM"
 if exist "Index.txt" goto "IndexExist"
 echo.
 echo Getting edition details for Windows Disk Image/Windows installation media "%DriveLetter%".
-"%windir%\System32\Dism.exe" /Get-WimInfo /WimFile:"%DriveLetter%\sources\%Install%" | find /c /i "Index" > "Index.txt"
+"%windir%\System32\Dism.exe" /Get-WimInfo /WimFile:"%DriveLetter%\sources\%Install%" | "%windir%\System32\find.exe" /c /i "Index" > "Index.txt"
 set /p EditionNumber=< "Index.txt"
 del "Index.txt" /f /q > nul 2>&1
 echo Got edition details for Windows Disk Image/Windows installation media "%DriveLetter%".
