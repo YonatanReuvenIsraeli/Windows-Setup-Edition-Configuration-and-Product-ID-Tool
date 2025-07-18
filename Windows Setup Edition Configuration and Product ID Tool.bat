@@ -2,7 +2,7 @@
 title Windows Setup Edition Configuration and Product ID Tool
 setlocal
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.20
+echo Version: 1.0.21
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -322,7 +322,7 @@ goto "SureEdition11"
 :"RetailOEM"
 echo.
 set RetailOEM=
-set /p RetailOEM="Do you want a Retail or OEM version? (Retail/OEM) "
+set /p RetailOEM="Do you want a Retail or an OEM version? (Retail/OEM) "
 if /i "%RetailOEM%"=="Retail" goto "SureRetailOEM"
 if /i "%RetailOEM%"=="OEM" goto "SureRetailOEM"
 echo Invalid syntax!
@@ -332,7 +332,7 @@ goto "RetailOEM"
 echo.
 set SureRetailOEM=
 if /i "%RetailOEM%"=="Retail" set /p SureRetailOEM="Are you sure you want a Retail version? (Yes/No) "
-if /i "%RetailOEM%"=="OEM" set /p SureRetailOEM="Are you sure you want a OEM version? (Yes/No) "
+if /i "%RetailOEM%"=="OEM" set /p SureRetailOEM="Are you sure you want an OEM version? (Yes/No) "
 if /i "%SureRetailOEM%"=="Yes" goto "Volume"
 if /i "%SureRetailOEM%"=="No" goto "RetailOEM"
 echo Invalid syntax!
