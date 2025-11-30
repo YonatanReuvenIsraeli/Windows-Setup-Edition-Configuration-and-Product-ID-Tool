@@ -2,7 +2,7 @@
 title Windows Setup Edition Configuration and Product ID Tool
 setlocal
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.23
+echo Version: 1.0.24
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -474,16 +474,16 @@ if /i "%EditionNumber%"=="7" if /i "%Edition7%"=="5" (echo EducationN) >> "%Driv
 if /i "%EditionNumber%"=="7" if /i "%Edition7%"=="6" (echo Professional) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%EditionNumber%"=="7" if /i "%Edition7%"=="7" (echo ProfessionalN) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" (echo Core) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="2" (echo CoreN) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="3" (echo CoreSingleLanguage) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="4" (echo Education) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="5" (echo EducationN) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="6" (echo Professional) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="7" (echo ProfessionalN) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="8" (echo ProfessionalEducation) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="9" (echo ProfessionalEducationN) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" f /i "%Edition11%"=="10" (echo ProfessionalWorkstations) >> "%DriveLetter%\x64\sources\EI.cfg"
-if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="1" if /i "%Edition11%"=="11" (echo ProfessionalWorkstationsN) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="2" (echo CoreN) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="3" (echo CoreSingleLanguage) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="4" (echo Education) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="5" (echo EducationN) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="6" (echo Professional) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="7" (echo ProfessionalN) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="8" (echo ProfessionalEducation) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="9" (echo ProfessionalEducationN) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="10" (echo ProfessionalWorkstations) >> "%DriveLetter%\x64\sources\EI.cfg"
+if /i "%EditionNumber%"=="11" if /i "%Edition11%"=="11" (echo ProfessionalWorkstationsN) >> "%DriveLetter%\x64\sources\EI.cfg"
 (echo [Channel]) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%RetailOEM%"=="Retail" (echo Retail) >> "%DriveLetter%\x64\sources\EI.cfg"
 if /i "%RetailOEM%"=="OEM" (echo OEM) >> "%DriveLetter%\x64\sources\EI.cfg"
