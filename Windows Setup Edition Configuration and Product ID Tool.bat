@@ -2,7 +2,7 @@
 title Windows Setup Edition Configuration and Product ID Tool
 setlocal
 echo Program Name: Windows Setup Edition Configuration and Product ID Tool
-echo Version: 1.0.24
+echo Version: 1.0.25
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -261,7 +261,7 @@ if /i "%Edition7%"=="1" set /p EditionSure="Are you sure you want Home edition? 
 if /i "%Edition7%"=="2" set /p EditionSure="Are you sure you want Home N edition? (Yes/No) "
 if /i "%Edition7%"=="3" set /p EditionSure="Are you sure you want Home Single Language edition? (Yes/No) "
 if /i "%Edition7%"=="4" set /p EditionSure="Are you sure you want Education edition? (Yes/No) "
-if /i "%Edition7%"=="5" set /p EditionSure="Are you sure you want Education N? (Yes/No) "
+if /i "%Edition7%"=="5" set /p EditionSure="Are you sure you want Education N edition? (Yes/No) "
 if /i "%Edition7%"=="6" set /p EditionSure="Are you sure you want Pro edition? (Yes/No) "
 if /i "%Edition7%"=="7" set /p EditionSure="Are you sure you want Pro N edition? (Yes/No) "
 if /i "%EditionSure%"=="Yes" goto "RetailOEM"
@@ -306,7 +306,7 @@ if /i "%Edition11%"=="1" set /p EditionSure="Are you sure you want Home edition?
 if /i "%Edition11%"=="2" set /p EditionSure="Are you sure you want Home N edition? (Yes/No) "
 if /i "%Edition11%"=="3" set /p EditionSure="Are you sure you want Home Single Language edition? (Yes/No) "
 if /i "%Edition11%"=="4" set /p EditionSure="Are you sure you want Education edition? (Yes/No) "
-if /i "%Edition11%"=="5" set /p EditionSure="Are you sure you want Education N? (Yes/No) "
+if /i "%Edition11%"=="5" set /p EditionSure="Are you sure you want Education N edition? (Yes/No) "
 if /i "%Edition11%"=="6" set /p EditionSure="Are you sure you want Pro edition? (Yes/No) "
 if /i "%Edition11%"=="7" set /p EditionSure="Are you sure you want Pro N edition? (Yes/No) "
 if /i "%Edition11%"=="8" set /p EditionSure="Are you sure you want Pro Education edition? (Yes/No) "
